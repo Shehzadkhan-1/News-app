@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="news-app">
+        <h1>News App</h1>
+        <input type="text" id="search" placeholder="Search news">
+        <button id="get-news">Get News</button>
+        <div id="news-list"></div>
+    </div>
+    <script>
+        const apiKey = '3490a185934f4ddc984300c3e4594e98'; // Replace with your actual API key
+        const searchInput = document.getElementById('search');
+        const getNewsButton = document.getElementById('get-news');
+        const newsListDiv = document.getElementById('news-list');
+
+        getNewsButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value;
+            fetch(`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    const newsList = data.articles.map(article => {
+                        return `
+                            <div class="news-item">
+                                <h2>${article.title}</h2>
+                                <p>${article.description}</p>
+                                <p><a href="${article.url}" target="_blank">Read more</a></p>
+                            </div>
+                        `;
+                    }).join('');
+                    newsListDiv.innerHTML = newsList;
+                })
+                .catch(error => console.error(error));
+        });
+    </script>
+</body>
+</html>

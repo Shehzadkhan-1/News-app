@@ -1,0 +1,42 @@
+.news-app {
+	max-width: 800px;
+	margin: 40px auto;
+	padding: 20px;
+	background-color: #f7f7f7;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#search {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+#get-news {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#news-list {
+	margin-top: 20px;
+}
+
+.news-item {
+	margin-bottom: 20px;
+	padding: 20px;
+	border-bottom: 1px solid #ccc;
+}
+
+.news-item h2 {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.news-item p {
+	margin-bottom: 20px;
+}
